@@ -1,0 +1,171 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Mobile.Master" Inherits="WebAppLibrary.Site_Mobile" %>
+<%@ Register Src="~/ViewSwitcher.ascx" TagPrefix="friendlyUrls" TagName="ViewSwitcher" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width" />
+    <title>Library Management</title>
+    <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Banner Styling */
+        .banner {
+            background-color: #00539C;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .banner-text {
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .navbar a {
+            display: inline-block;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        /* Main Content Section Styling */
+        .content-wrapper {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .clear-fix:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Form and Input Styling */
+        form {
+            margin: 20px 0;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #00539C;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #004080;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media Queries for Mobile */
+        @media screen and (max-width: 768px) {
+            .banner-text {
+                font-size: 1.8em;
+            }
+
+            .navbar a {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+
+            .content-wrapper {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .banner-text {
+                font-size: 1.5em;
+            }
+
+            .navbar a {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="banner">
+            <asp:Image ID="Image1" runat="server" ImageUrl="~/images/Screenshot 2024-09-25 154213.png" />
+            <div class="banner-text">Online EDU Library</div>
+        </div>
+
+        <div class="navbar">
+            <a href="Administrator.aspx">Administrator</a>
+            <a href="Registration.aspx">Home</a>
+            <a href="LibraryMember.aspx">Library Member</a>
+            <a href="BookDetails.aspx">Book Details</a>
+            <a href="BookIssue.aspx">Book Issue</a>
+            <a href="Contact.aspx">Contact Us</a>
+        </div>
+
+        <asp:ContentPlaceHolder runat="server" ID="FeaturedContent" />
+        <section class="content-wrapper main-content clear-fix">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </section>
+
+        <div class="footer">
+            &copy; 2024 Online EDU Library
+        </div>
+
+        <friendlyUrls:ViewSwitcher runat="server" />
+    </form>
+</body>
+</html>
+
+
